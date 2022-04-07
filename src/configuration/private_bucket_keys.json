@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "eamigrate",
+    "private_key_id": "7f9207884f0b9bcc4de8d44eb2af35611c1e0ee9",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQDlp0yc67jsBURC\ncHi3iqf1mwNF9y/UxM/Rp2/GsDTb089+N+DhX11PcJqNruxvvbuoM6kvRb+6lJiw\n1VW3p8HZrtq4OBlCLTK4wiswi8c0J8zX3AoKzaQKNrv4qAh5D2vX/y1XxCcbjZJ3\nmF0xiGw20cpiS9U2UE/clNknIP1uzZ57NV1ym7W89zdwfsNSxxoCBl7s+RJ8fSaK\nMvmP8uW+3je9leVzzWdiifp5UM5AYjRFRPxe6z844PoznEIz3nDHZhIvIv4F8FjU\n9v8MiJ1AN9MosFmIdvDQaIxUMYBGj3F7w7Jr0//40kcwd/RvXd6npXQhFc3ojyFk\nZICZH9MVAgMBAAECgf8WM9Z0VVXLe7bdtYH2PLGATTxDx2IYb+6nlkh4LRDvL8sf\nqMdVAqNCyuAmUoMJSo6Z9GSm7Vdb8oHQls9ysgVLxlve8419mGEO+7axOtJHeJGV\nTPCrmrYBRsllgNlQ2uzSNRltIsmlIErIxTI9V7Memam3Vx2F4r3V1Y4o+keGLqv+\nCrBFxnKm5ILylWzH/uoZADJiDZPSeDCPgJWPdAhpa0aCbQQcN763abeqBYm4SWOk\nX8A/3DsgNablBo4gOczfzTXUsP5aFi7ovYr1rjxsU28cRPEkQsdNzp1k7Cpk8+Ji\nxNJaXb34foSXLf2+ki3I8zYJ2HPww09uxZBgVOECgYEA+F+u5abkzzKrpE2QpG8r\nbQZKtOcy6+aKfTGX3vd12+uaI8ApHTTW4uBSgBEeyg2NbJ4PWPWLsTUbewirYd7g\ns6N2u4WWvzJaJhm6z7xTxVEM03f4vXvQtB/TIfzRc7MRs94SnoEQbCMLW8dk3Jhi\neYkvYHI6Sj1zg5OSPdze6nUCgYEA7LR3qtkEyEOKh9wgkhBjWUUDm7WdL6JkUR27\nOPpdCzicpYmQuFuTKq8g46Eygv5Xh75YXFDzJrlliG7sOUUn4E7XMRcrzJnePR5J\nnG+C+xAkt/HYrxJPJL82lDf1aPmzv0lcLxnzubl5diuOXnF9e0usa7idiw25WI9T\nlomd8iECgYBJ0m6ydXt2ljHsAN3n8d7vZbpYsIszEG/DLDVeoSCXwBwtWhUeSDFC\nd7gttmj3VzXcvdID99+QSR+k3vvJeCxDWGeW7urSY03mGymqSuh/Mkrko7j74Mw0\nbW0cof9DK0sssenI0MWnzna2zboN0wEZ7It3WBw5KrClv/vshTSAbQKBgQDJBjMj\nK4++LG44F6Cpq7VUGSKJWOIXlEiyAxf/udDPONMAWyZHC66eb4D1EO9/BFZ9+A++\nxxjZaFZsWhfQQ4UsIIjtLgqKhpqROWm2q5WHdxxYA9LMTDZetO27TxLihj47VCgv\n8FBnCLe4viD44FV7IrdZ/L3/XDZumbqZfGJhQQKBgAr5J2PmU4n5T48GIUUWwAfF\n6w//KcjXGHcFs/gpx+zYHykaBYTsZOFcuIfQinw/as/Y7ue8T/tRgDwU1Fh7PjFZ\nkeULPPTZBCG4TcVP+q1NAitXG29+3PaHqxXfKw8vtBpb+QUCeTBaDaiCVlCIeod5\nEXnd9EPUnuGIsefGfcYT\n-----END PRIVATE KEY-----\n",
+    "client_email": "storageagent@eamigrate.iam.gserviceaccount.com",
+    "client_id": "106217506042038337532",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storageagent%40eamigrate.iam.gserviceaccount.com"
+  }
