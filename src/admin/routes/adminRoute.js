@@ -137,4 +137,10 @@ router
     .route("/getequifax")
     .all(FetchController.Getequifax);
 
+// Jira Contact Verify
+// 2-5-2021 Sampat
+router
+    .route("/jiracontactverify")
+    .put(SaveController.jiraContactVerify);
+
 module.exports = router;
