@@ -1159,4 +1159,45 @@ BitlyJira: async (req, res) => {
         }
     },    
 
+    
+jiraContactVerify: async (req, res) => {
+        try {
+            var data = JSON.stringify({
+              "fields": {
+                "customfield_10417": "Mobile verified"
+              }
+            });
+            var config = {
+              method: 'put',
+              url: 'https://easylos.atlassian.net/rest/api/3/issue/'+req.query.claim,
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic Y2hpcmFnQGVhc3lhc3BhdGFhbC5jb206RngzaHZOeXpzWmRQZjRNcmtzN0s5RUUw',
+                'Cookie': 'atlassian.xsrf.token=2320118d-6d73-4369-addd-eae328a4f16c_37e5682debed8925156bbcc30aca09e307b0ef4d_lin'
+              },
+              data : data
+            };
+            axios(config)
+            .then(function (response) {
+              const result = {
+                code: 200,
+                status: true,
+                message: 'sucess'
+            }
+            res.json(result);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        } catch (err) {
+            const result = {
+                code: 400,
+                status: false,
+                message: 'error'
+            }
+            res.json(result);
+        }
+    },    
+    
 };
