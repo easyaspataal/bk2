@@ -143,4 +143,8 @@ router
     .route("/jiracontactverify")
     .put(SaveController.jiraContactVerify);
 
+router
+    .route("/bitlyjiraatl")
+    .post(SaveController.BitlyJiraAtl);
+
 module.exports = router;
