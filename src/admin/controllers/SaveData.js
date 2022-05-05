@@ -1200,4 +1200,46 @@ jiraContactVerify: async (req, res) => {
         }
     },    
     
+    
+BitlyJiraAtl: async (req, res) => {
+        console.log(req.body)
+      var { jiralink }= req.body
+        try {
+            var data = JSON.stringify({
+              "long_url": `https://na4.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=8fa0de82-3885-4416-9cf2-432f0502f09e&Customer_name=${req.body.name}&Application_name=${req.body.name}&Demand_promissory_amount1=${req.body.amount}&Demand_promissory_amount=${req.body.amount}&Demand_promissory_name=${req.body.name}&Applied_repayment_amount=${req.body.amount}&Personal_details_name=${req.body.name}&Personal_details_dob=${req.body.dob}&Personal_details_pan=${req.body.pan}&Personal_details_aadhar=${req.body.aadhar}&Contact_details_houseno=${req.body.address}&Contact_details_city=${req.body.city}&Contact_details_state=${req.body.state}&Contact_details_pin=${req.body.pin}&Bank_accountno=${req.body.account_no}&Bank_bankname=${req.body.bank_name}&Bank_accounttype=${req.body.account_type}&Bank_ifsc=${req.body.ifsc}&Disburse_dealer=${req.body.hospital_name}&Financing_amount=${req.body.amount}&claim_no=${req.body.key}`,
+              "domain": "bit.ly",
+              "group_guid": "Bla98d6KX93"
+            });
+            var config = {
+              method: 'post',
+              url: 'https://api-ssl.bitly.com/v4/shorten',
+              headers: {
+                'Authorization': 'Bearer 995be43e0b3de2519528ccd7c686ceb311643a52',
+                'Content-Type': 'application/json'
+              },
+              data : data
+            };
+            axios(config)
+            .then(function (response) {
+              var linkshort = response.data.link;
+              const result = {
+                code: 200,
+                status: true,
+                message:linkshort
+            }
+            console.log(result);
+            res.json(result);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        } catch (err) {
+            const result = {
+                code: 400,
+                status: false,
+                message: 'error'
+            }
+            res.json(result);
+        }
+    },    
 };
