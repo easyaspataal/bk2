@@ -35,6 +35,14 @@ const sendemail = async (toemail, subject, message) => {
             html: message,
         };
     }
+    else if (subject == 'OTP') {
+        var mailOptions = {
+            from: 'info@easyaspataal.com',
+            to: toemail,
+            subject: subject,
+            html: message
+        };
+    }
     else {
         var mailOptions = {
             from: 'info@easyaspataal.com',
