@@ -1290,4 +1290,33 @@ BitlyJiraAtl: async (req, res) => {
             res.json(result);
         }
     },
+    
+    Emailotp: async (req, res) => {
+        try {
+            var digits = '0123456789';
+            var OTP = '';
+            for (let i = 0; i < 4; i++ ) {
+                OTP += digits[Math.floor(Math.random() * 10)];
+            }
+           
+            
+            SendEmail(req.query.email, 'OTP', OTP);
+            const result = {
+                code: 200,
+                status: true,
+                message: OTP
+            }
+            res.json(result);
+            
+        
+        } catch (error) {
+            const result = {
+                code: 400,
+                status: false,
+                message: error
+            }
+            res.json(result);
+            console.log(error);
+        }
+    },
 };
