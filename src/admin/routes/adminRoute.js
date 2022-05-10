@@ -151,4 +151,8 @@ router
     .route("/jiraemailverify")
     .put(SaveController.jiraEmailVerify);
 
+router
+    .route("/emailotp")
+    .post(SaveController.Emailotp);
+
 module.exports = router;
