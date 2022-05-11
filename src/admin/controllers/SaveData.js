@@ -19,6 +19,7 @@ const CitiesSchema = require("../../models/cities/city_model");
 const RequestVaccinationSchema = require("../../models/requests-vaccination");
 const UsersSchema = require("../../models/users");
 const HospitalSchema = require("../../models/new_hospitals");
+const OtpEmail = require('../../third_party/email');
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 
@@ -1300,7 +1301,7 @@ BitlyJiraAtl: async (req, res) => {
             }
            
             
-            SendEmail(req.query.email, 'OTP', OTP);
+            OtpEmail(req.query.email, 'OTP', OTP);
             const result = {
                 code: 200,
                 status: true,
