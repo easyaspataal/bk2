@@ -280,11 +280,15 @@ ViewReporterList: async (req, res) => {
                 paymentstatusarr.push(response.data.fields.customfield_10345.value)
               }
               response.data.fields.comment.comments.map((val, index) => {
-                val.body.content.map((value, indx) => {
-                  value.content.map((values, key) => {
+                val.body.content.map((rrr, ind) => {
+               rrr.content.map((values) => {
+                 if(values.type == 'text'){
+                   if(values.text.charAt(0) != '('){
                     commentarr.push(values.text)
-                  })
+                   }
+                 }
                 })
+               })
               })
            var items = statearr.map((statearr, index) => {
             return {
