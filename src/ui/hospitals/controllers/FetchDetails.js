@@ -153,7 +153,7 @@ DasboardJiraList: async (req, res) => {
             var reporterId = req.query.reporterId
 var config = {
   method: 'get',
-  url: 'http://easylos.atlassian.net/rest/api/2/search?jql=status!="Ignore%20Mails"&reporter='+`'${reporterId}'`,
+  url: 'http://easylos.atlassian.net/rest/api/2/search?jql=reporter='+`'${reporterId}'`+'&status!="Ignore%20Mails"',
   headers: {
     'Authorization': 'Basic Y2hpcmFnQGVhc3lhc3BhdGFhbC5jb206RngzaHZOeXpzWmRQZjRNcmtzN0s5RUUw'
   }
