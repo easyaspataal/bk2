@@ -153,7 +153,7 @@ DasboardJiraList: async (req, res) => {
             var reporterId = req.query.reporterId
 var config = {
   method: 'get',
-  url: 'http://easylos.atlassian.net/rest/api/2/search?jql=reporter='+`'${reporterId}'`+'&status!="Ignore%20Mails"',
+  url: 'http://easylos.atlassian.net/rest/api/2/search?jql=reporter='+`'${reporterId}'`,
   headers: {
     'Authorization': 'Basic Y2hpcmFnQGVhc3lhc3BhdGFhbC5jb206RngzaHZOeXpzWmRQZjRNcmtzN0s5RUUw'
   }
@@ -168,6 +168,7 @@ axios(config)
     var summaryarr = [];
     var createdarr = [];
     response.data.issues.map((issue, index) => {
+        if(issue.fields.status.name != 'Ignore Mails'){
  const patientresult = issue.fields.customfield_10040
 patientarr.push(patientresult)
 const amountresult = issue.fields.customfield_10182
@@ -182,6 +183,7 @@ datearr.push(dateresult)
  summaryarr.push(summaryresult);
  const createdresult = new Date(Date.parse(issue.fields.created)).toLocaleString().replace(","," ");
  createdarr.push(createdresult)
+        }
     })
 var items = keyarr.map((keyarr, index) => {
     return {
