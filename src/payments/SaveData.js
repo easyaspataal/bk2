@@ -34,9 +34,9 @@ module.exports = {
     // 8-2-2021 Sampat    
 UpdateJiraStatus: async (req, res) => {
         try {
-            var { patient, claim} = req.body;
+            var { patient, claim, amount} = req.body;
             var data = JSON.stringify({
-                "body": `Rs.599/- Payment done successfully by ${patient}`
+                 "body": `Rs.${amount}/- Payment done successfully by ${patient}`
               });
               var config = {
                 method: 'post',
