@@ -14,6 +14,15 @@ const RohiniSchema = require("../../models/rohini");
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 
+const Pool=require("pg").Pool;
+const pool=new Pool({
+    user:"easy_admin",
+    password:"EasyAspatal1212",
+    database:"easy_aspataal",
+    host:"easyaspataal-staging-instance-1.cbqgtf1hzzqq.ap-south-1.rds.amazonaws.com",
+    port:5432
+});
+
 module.exports = {
 
     // Fetch All Hospitals
@@ -286,5 +295,31 @@ module.exports = {
             console.log(error);
         }
     },
+    
+    ////// Fetch Hospital data  PSQL in Jira By Reporter
+//03-06-2022 pratik
+HospitalReporterSql: async (req, res) => {
+    try {
+
+        const {EMAIL}=req.body;
+        const HospitalsDatap=await pool.query("SELECT * FROM hospital_jira WHERE email=$1",[EMAIL]);
+        
+
+        const result = {
+            code: 200,
+            status: true,
+            message: HospitalsDatap
+        }
+        res.json(result);
+    } catch (error) {
+        const result = {
+            code: 400,
+            status: false,
+            message: error,
+        }
+        res.json(result);
+        console.log(error);
+    }
+},
 
 };
