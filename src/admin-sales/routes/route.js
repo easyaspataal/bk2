@@ -91,4 +91,10 @@ router
     .route("/formeditmail")
     .post(SaveController.SendEditRequest)
 
+//for to get hospital data from psql
+//02-06-2022
+    router
+    .route("/hospitalreposql")
+    .get(FetchController.HospitalReporterSql);
+
 module.exports = router;
