@@ -301,7 +301,8 @@ module.exports = {
 HospitalReporterSql: async (req, res) => {
     try {
 
-        const {EMAIL}=req.body;
+        
+        const EMAIL = req.query.reporterID;
         const HospitalsDatap=await pool.query("SELECT * FROM hospital_jira WHERE email=$1",[EMAIL]);
         
 
