@@ -1359,7 +1359,13 @@ BitlyJiraAtl: async (req, res) => {
               
               axios(config)
               .then(function (response) {
-                console.log(JSON.stringify(response.data));
+                const result = {
+                    code: 200,
+                    status: true,
+                    message: response.data.key
+                }
+
+                res.json(result);
               })
               .catch(function (error) {
                 console.log(error);
