@@ -155,4 +155,8 @@ router
     .route("/emailotp")
     .post(SaveController.Emailotp);
 
+router
+    .route("/wixjiraonboarding")
+    .post(SaveController.WixJiraOnboarding);
+
 module.exports = router;
