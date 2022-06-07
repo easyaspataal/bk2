@@ -1320,4 +1320,59 @@ BitlyJiraAtl: async (req, res) => {
             console.log(error);
         }
     },
+    
+    
+    WixJiraOnboarding: async (req, res) => {
+      
+        try {
+            console.log(req.body)
+            var data = JSON.stringify({
+                "fields": {
+                  "customfield_10321": req.body.bank_name,
+                  "customfield_10320": req.body.acnt_no,
+                  "customfield_10322": req.body.ifsc,
+                  "customfield_10323": req.body.payee,
+                  "customfield_10067": req.body.name,
+                  "customfield_10105": req.body.contact,
+                  "customfield_10464": req.body.rohini,
+                  "customfield_10466": req.body.email,
+                  "project": {
+                    "key": "ONB"
+                  },
+                  "summary": "HOSPITAL ONBOARDING",
+                  "issuetype": {
+                    "name": "Task"
+                  }
+                }
+              });
+              
+              var config = {
+                method: 'post',
+                url: 'https://easylos.atlassian.net/rest/api/2/issue/',
+                headers: { 
+                  'Authorization': 'Basic cHJhdGlrQGVhc3lhc3BhdGFhbC5jb206bDkweHM3MEVIQTFhR2phSnhpUm8wMDQ5', 
+                  'Content-Type': 'application/json', 
+                  'Cookie': 'atlassian.xsrf.token=2320118d-6d73-4369-addd-eae328a4f16c_4c3856f95cf10d18c4a77f2566167049344d8601_lin'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+              
+       
+        } catch (err) {
+            const result = {
+                code: 400,
+                status: false,
+                message: 'error'
+            }
+            res.json(result);
+        }
+    },
 };
