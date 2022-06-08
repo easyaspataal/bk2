@@ -105,7 +105,7 @@ module.exports = {
             const bank_details_bank_name = req.body.bank_details[0].bank_name;
             const bank_details_ifsc_code = req.body.bank_details[0].ifsc_code;
             const bank_details_payee_name = req.body.bank_details[0].payee_name;
-            const hidddup=hospid;
+            const hidddup='HS' + hospid;
             const hashpassdup = hashpass;
             const {contact,email,name,subvention_rate}=req.body;
             await pool.query("INSERT INTO hospital (hid,contact,email,name,password,bank_details_account_no,bank_details_bank_name,bank_details_ifsc_code,bank_details_payee_name,subvention_rate) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)",[hidddup,contact,email,name,hashpassdup,bank_details_account_no,bank_details_bank_name,bank_details_ifsc_code,bank_details_payee_name,subvention_rate]);
