@@ -18,7 +18,14 @@ const AdminSchema = require("../../models/admin/sales-login");
 const AgentSchema = require("../../models/agents");
 const RohiniSchema = require("../../models/rohini");
 /* ------------------------------------------------------------------------------------------------------------------ */
-
+const Pool=require("pg").Pool;
+const pool=new Pool({
+    user:"easy_admin",
+    password:"EasyAspatal1212",
+    database:"ea_hospital_dashboard",
+    host:"easyaspataal-staging-instance-1.cbqgtf1hzzqq.ap-south-1.rds.amazonaws.com",
+    port:5432
+});
 
 module.exports = {
 
@@ -92,6 +99,17 @@ module.exports = {
             const password = passwordgen();
             const salt = await bcrypt.genSalt(10);
             var hashpass = await bcrypt.hash(password, salt);
+            
+            
+            const bank_details_account_no = req.body.bank_details[0].account_no;
+            const bank_details_bank_name = req.body.bank_details[0].bank_name;
+            const bank_details_ifsc_code = req.body.bank_details[0].ifsc_code;
+            const bank_details_payee_name = req.body.bank_details[0].payee_name;
+            const hidddup=hospid;
+            const hashpassdup = hashpass;
+            const {contact,email,name,subvention_rate}=req.body;
+            await pool.query("INSERT INTO hospital (hid,contact,email,name,password,bank_details_account_no,bank_details_bank_name,bank_details_ifsc_code,bank_details_payee_name,subvention_rate) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)",[hidddup,contact,email,name,hashpassdup,bank_details_account_no,bank_details_bank_name,bank_details_ifsc_code,bank_details_payee_name,subvention_rate]);
+           
 
             HospitalSchema.updateOne({ _id: newHospital._id },
                 {
