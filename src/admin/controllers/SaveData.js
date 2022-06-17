@@ -1199,7 +1199,55 @@ jiraContactVerify: async (req, res) => {
             }
             res.json(result);
         }
-    },    
+    },   
+    
+    
+    
+    BitlyJiraOnboard: async (req, res) => {
+        
+        try {
+            
+            var data = JSON.stringify({
+              "long_url": `https://na4.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=dbb722d6-4ea6-4e2f-a6e5-1045f8f56c57&hos_name=${req.body.hospital_name}&hospital_name=${req.body.hospital_name}&payee_name=${req.body.payee_name}&ifsc_code=${req.body.ifsc_code}&acnt_no=${req.body.acnt_no}&bank_branch=${req.body.bank_branch}&bank_name=${req.body.bank_name}&ipd=${req.body.ipd}&opd=${req.body.opd}&insuremb=${req.body.insuremb}`,
+              "domain": "bit.ly",
+              "group_guid": "Bla98d6KX93"
+            });
+            
+            var config = {
+              method: 'post',
+              url: 'https://api-ssl.bitly.com/v4/shorten',
+              headers: { 
+                'Authorization': 'Bearer 995be43e0b3de2519528ccd7c686ceb311643a52', 
+                'Content-Type': 'application/json'
+              },
+              data : data
+            };
+            
+            axios(config)
+            .then(function (response) {
+              var linkshort = response.data.link;
+              const result = {
+                code: 200,
+                status: true,
+                message:linkshort
+            }
+        
+            res.json(result);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+            
+       
+        } catch (err) {
+            const result = {
+                code: 400,
+                status: false,
+                message: 'error'
+            }
+            res.json(result);
+        }
+    },
     
     
 BitlyJiraAtl: async (req, res) => {
