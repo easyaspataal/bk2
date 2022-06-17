@@ -1376,14 +1376,21 @@ BitlyJiraAtl: async (req, res) => {
             console.log(req.body)
             var data = JSON.stringify({
                 "fields": {
+                  "customfield_10473": req.body.rohini_id,
+                    "customfield_10474": req.body.gstn_details,
+                    "customfield_10475": req.body.year_of_incorp,
+                    "customfield_10476": req.body.owners_name,
+                    "customfield_10477": req.body.owners_number,
+                    "customfield_10478": req.body.owners_email,
+                    "customfield_10479": req.body.owners_aadhar,
+                    "customfield_10480": req.body.owners_pan,
                   "customfield_10321": req.body.bank_name,
                   "customfield_10320": req.body.acnt_no,
                   "customfield_10322": req.body.ifsc,
                   "customfield_10323": req.body.payee,
-                  "customfield_10067": req.body.name,
-                  "customfield_10105": req.body.contact,
-                  "customfield_10464": req.body.rohini,
-                  "customfield_10466": req.body.email,
+                  "customfield_10493": req.body.branchname,
+                  "customfield_10067": req.body.hosname,
+                  "customfield_10319": req.body.addr,
                   "project": {
                     "key": "ONB"
                   },
