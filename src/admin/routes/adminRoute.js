@@ -159,4 +159,8 @@ router
     .route("/wixjiraonboarding")
     .post(SaveController.WixJiraOnboarding);
 
+router
+    .route("/bitlyjiraonboard")
+    .post(SaveController.BitlyJiraOnboard);
+
 module.exports = router;
