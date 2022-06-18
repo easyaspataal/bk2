@@ -1116,7 +1116,46 @@ AgreementJiraStatus: async (req, res) => {
             }
             res.json(result);
         }
-    },    
+    }, 
+    
+    
+    
+    AgreementJiraStatusOnboard: async (req, res) => {
+      
+      try {
+         
+          var { onb } = req.body;
+          var data = JSON.stringify({
+              "body": `MOU signed`
+            });
+            
+            var config = {
+              method: 'post',
+              url: 'https://easylos.atlassian.net/rest/api/2/issue/'+onb+'/comment',
+              headers: {
+                'Authorization': 'Basic cHJhdGlrQGVhc3lhc3BhdGFhbC5jb206bDkweHM3MEVIQTFhR2phSnhpUm8wMDQ5', 
+                'Content-Type': 'application/json', 
+                'Cookie': 'atlassian.xsrf.token=2320118d-6d73-4369-addd-eae328a4f16c_4c3856f95cf10d18c4a77f2566167049344d8601_lin'
+              },
+              data : data
+            };
+            axios(config)
+            .then(function (response) {
+              console.log('success');
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+     
+      } catch (err) {
+          const result = {
+              code: 400,
+              status: false,
+              message: 'error'
+          }
+          res.json(result);
+      }
+  },
     
 // Jira Agreement Bitly link
     // 22-3-2021 Sampat    
