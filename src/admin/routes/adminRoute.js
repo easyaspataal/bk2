@@ -125,6 +125,10 @@ router
     .route("/agreementjirastatus")
     .post(SaveController.AgreementJiraStatus);
 
+router
+    .route("/agreementjirastatusonboard")
+    .post(SaveController.AgreementJiraStatusOnboard);
+
 // Jira Bitly
 // 22-3-2021 Sampat
 router
