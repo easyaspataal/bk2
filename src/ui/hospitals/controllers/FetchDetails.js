@@ -246,6 +246,8 @@ ViewReporterList: async (req, res) => {
               var paymentstatusarr = [];
               var commentarr = [];
               var keyarr = [];
+              var emndtarr = [];
+              var podarr = [];
              keyarr.push(response.data.key)
             //Policy holder name
             policyholdernamearr.push(response.data.fields.customfield_10041)
@@ -267,6 +269,19 @@ ViewReporterList: async (req, res) => {
             aadhararr.push(response.data.fields.customfield_10104)
             //dob
             dobarr.push(response.data.fields.customfield_10103)
+               //emandate
+            if(response.data.fields.customfield_10408 == "" || response.data.fields.customfield_10408 == null){
+              emndtarr.push("Not updated")
+            }else{
+              emndtarr.push("Sent")
+            }
+            //  pod status
+            if(response.data.fields.customfield_10347 == null){
+              podarr.push('Not Updated')
+            }
+            else{
+              podarr.push(response.data.fields.customfield_10347.value)
+            }
             //agreement status
             if(response.data.fields.customfield_10339 == null){
                 agreementstatusarr.push('Not Updated')
@@ -306,7 +321,9 @@ ViewReporterList: async (req, res) => {
               aadhar: aadhararr[index],
               agreementstatus: agreementstatusarr[index],
               paymentstatus: paymentstatusarr[index],
-              key: keyarr[index]
+              key: keyarr[index],
+              emandate: emndtarr[index],
+              pod: podarr[index]
             }
           });
             const result = {
