@@ -7,6 +7,13 @@ const FetchController = require("../controllers/FetchDetails");
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 
+//bio score
+//23-06-2022 pratik
+
+router
+	.route("/getbioscore")
+	.get(FetchController.GetBioScore);
+
 // Get all Hospitals
 // 30-8-2021 Prayag
 router
