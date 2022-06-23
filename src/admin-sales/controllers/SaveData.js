@@ -80,6 +80,8 @@ module.exports = {
     // 29-7-2021 Prayag
     OnBoardHospital: async (req, res) => {
         try {
+             const HospitalDataEmail = await HospitalSchema.countDocuments({ email: req.body.email });
+           if(HospitalDataEmail == 0){
             const HospitalID = await HospitalSchema.aggregate([
                 { $sort: { '_id': -1 } },
                 { $limit: 1 },
@@ -153,6 +155,16 @@ module.exports = {
                 }
                 res.json(result);
             }
+                }else {
+            const result = {
+                code: 200,
+                status: true,
+                message: {
+                    link:'Hospital Already Present'
+                },
+            }
+            res.json(result);
+        }
         } catch (error) {
             const result = {
                 code: 400,
