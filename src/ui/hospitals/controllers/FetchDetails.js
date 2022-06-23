@@ -18,7 +18,7 @@ module.exports = {
     
     // calculate Bio score
     // 23-6-2022 pratik
-    GetBioScore: async (req, res) => {
+        GetBioScore: async (req, res) => {
         try {
             const {age,alcohol,anypre,asthma,bmi,dibetes,family,gender,hypertension,ifped,mental,physical,sleephou,sleephab,smoker,currhos}=req.body;
             var sum=0;
@@ -67,8 +67,11 @@ module.exports = {
             if(smoker !=0){
                 sum=sum+1;
             }
+            if(currhos !=0){
+                sum=sum+1
+            }
         
-        var totalscore=age+alcohol+anypre+asthma+bmi+dibetes+family+gender+hypertension+ifped+mental+physical+sleephou+sleephab+smoker;
+        var totalscore=age+alcohol+anypre+asthma+bmi+dibetes+family+gender+hypertension+ifped+mental+physical+sleephou+sleephab+smoker+currhos;
         var ress=Math.round(totalscore/sum);
         const result = {
                 code: 200,
