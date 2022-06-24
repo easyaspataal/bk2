@@ -97,4 +97,11 @@ router
     .route("/hospitalreposql")
     .get(FetchController.HospitalReporterSql);
 
+//bio score
+//23-06-2022 pratik
+
+router
+	.route("/getbioscore")
+	.get(FetchController.GetBioScore);
+
 module.exports = router;
