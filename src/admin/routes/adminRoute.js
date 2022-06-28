@@ -152,6 +152,10 @@ router
     .post(SaveController.BitlyJiraAtl);
 
 router
+    .route("/bitlyJiratjfc")
+    .post(SaveController.BitlyJiraTjfc);
+
+router
     .route("/jiraemailverify")
     .put(SaveController.jiraEmailVerify);
 
