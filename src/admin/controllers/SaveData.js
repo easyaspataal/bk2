@@ -1331,6 +1331,54 @@ BitlyJiraAtl: async (req, res) => {
         }
     }, 
     
+    
+     BitlyJiraTjfc: async (req, res) => {
+      
+    var { jiralink }= req.body
+      try {
+          
+          var data = JSON.stringify({
+            "long_url": `https://na4.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=aadfc2cf-a639-41d5-afad-6e7e0268b6ad&customer_name=${req.body.name}&amount_i=${req.body.amount}&demad_i=${req.body.name}&amount_ii=${req.body.amount}&personal_name=${req.body.name}&personal_dob=${req.body.dob}&personal_pan=${req.body.pan}&personal_aadhar=${req.body.aadhar}&contact_addr=${req.body.address}d&contact_city=${req.body.city}&contact_state=${req.body.state}&contact_pin=${req.body.pin}&contact_mobile=${req.body.contact}&bank_acnt=${req.body.account_no}&bank_name=${req.body.bank_name}&bank_type=${req.body.account_type}&bank_ifsc=${req.body.ifsc}&disbursement_dealer=${req.body.hospital_name}&applicant_name=${req.body.name}&financing_amount=${req.body.amount}&claim=${req.body.key}`,
+            "domain": "bit.ly",
+            "group_guid": "Bla98d6KX93"
+          });
+          
+          var config = {
+            method: 'post',
+            url: 'https://api-ssl.bitly.com/v4/shorten',
+            headers: { 
+              'Authorization': 'Bearer 995be43e0b3de2519528ccd7c686ceb311643a52', 
+              'Content-Type': 'application/json'
+            },
+            data : data
+          };
+          
+          axios(config)
+          .then(function (response) {
+            var linkshort = response.data.link;
+            const result = {
+              code: 200,
+              status: true,
+              message:linkshort
+          }
+          console.log(result);
+          res.json(result);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+          
+     
+      } catch (err) {
+          const result = {
+              code: 400,
+              status: false,
+              message: 'error'
+          }
+          res.json(result);
+      }
+  },
+    
     jiraEmailVerify: async (req, res) => {
        
         try {
