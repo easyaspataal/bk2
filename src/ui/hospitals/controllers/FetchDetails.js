@@ -170,8 +170,10 @@ axios(config)
     var statusarr = [];
     var summaryarr = [];
     var createdarr = [];
-     var agreementstatusarr = [];
-      var paymentstatusarr = [];
+    var agreementstatusarr = [];
+    var paymentstatusarr = [];
+    var emndtarr = [];
+    var podarr = [];
     response.data.issues.map((issue, index) => {
         if(issue.fields.status.name != 'Ignore Mails'){
  const patientresult = issue.fields.customfield_10040
@@ -189,6 +191,19 @@ if(issue.fields.customfield_10345 == null || issue.fields.customfield_10345 == "
 else{
   paymentstatusarr.push(issue.fields.customfield_10345.value)
 }
+  
+ if(issue.fields.customfield_10408 == "" || issue.fields.customfield_10408 == null){
+  emndtarr.push("Pending")
+}else{
+  emndtarr.push("Sent")
+}
+
+if(issue.fields.customfield_10347 == null || issue.fields.customfield_10347 == ""){
+  podarr.push('Pending')
+}
+else{
+  podarr.push(issue.fields.customfield_10347.value)
+}           
 const amountresult = issue.fields.customfield_10182
 amountarr.push(amountresult)
 const dateresult = issue.fields.customfield_10090
@@ -213,6 +228,8 @@ var items = keyarr.map((keyarr, index) => {
       amount : amountarr[index],
       agreementstatus: agreementstatusarr[index],
       paymentstatus: paymentstatusarr[index],
+      emandate: emndtarr[index],
+      pod: podarr[index]  
       date: datearr[index],
       type: 'cashless'
     }
