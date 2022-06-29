@@ -285,6 +285,10 @@ ViewReporterList: async (req, res) => {
               var keyarr = [];
               var emndtarr = [];
               var podarr = [];
+              var statusarr = [];
+            
+              
+             statusarr.push(response.data.fields.status.name);
              keyarr.push(response.data.key)
             //Policy holder name
             policyholdernamearr.push(response.data.fields.customfield_10041)
@@ -347,6 +351,7 @@ ViewReporterList: async (req, res) => {
            var items = statearr.map((statearr, index) => {
             return {
               state: statearr,
+              status: statusarr[index],
               city: cityarr[index],
               pan: panarr[index],
               contact: contactarr[index],
