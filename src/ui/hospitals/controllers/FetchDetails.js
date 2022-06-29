@@ -229,7 +229,7 @@ var items = keyarr.map((keyarr, index) => {
       agreementstatus: agreementstatusarr[index],
       paymentstatus: paymentstatusarr[index],
       emandate: emndtarr[index],
-      pod: podarr[index]  
+      pod: podarr[index],  
       date: datearr[index],
       type: 'cashless'
     }
