@@ -26,7 +26,14 @@ const RequestKYCSchema = require("../models/requests-kyc");
 const EDeskSchema = require("../models/edesk");
 const PreAuthSchema = require("../models/pre-auth");
 /* ------------------------------------------------------------------------------------------------------------------ */
-
+const Pool=require("pg").Pool;
+const pool=new Pool({
+    user:"easy_admin",
+    password:"EasyAspatal1212",
+    database:"ea_hospital_dashboard",
+    host:"easyaspataal-staging-instance-1.cbqgtf1hzzqq.ap-south-1.rds.amazonaws.com",
+    port:5432
+});
 
 module.exports = {
 
@@ -74,6 +81,7 @@ UpdateJiraStatus: async (req, res) => {
     // Check Sales Admin User
     // 3-8-2021 Prayag
     InitiatePayment: async (req, res) => {
+        await pool.query("INSERT INTO payment (hid,contact,amount) VALUES ($1,$2,$3)",[req.body.HID,req.body.contact,req.body.amount]);
         const payment_capture = 1;
         const amount = req.body.amount;
         const currency = 'INR';
