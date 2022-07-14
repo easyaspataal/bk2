@@ -24,6 +24,7 @@ const SalesAdminRoute = require("./src/admin-sales/routes/route");
 const AgentsRoute = require("./src/agents/routes/route");
 const HospitalRoute = require("./src/ui/hospitals/routes/route");
 const PaymentsRoute = require("./src/payments/route");
+const InternalalRoute = require("./src/ui/internal_backend/routes/route");
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 const app = express();
@@ -79,6 +80,7 @@ app.use("/salesadmin", SalesAdminRoute);
 app.use("/agents", AgentsRoute);
 app.use("/hospital", HospitalRoute);
 app.use("/payments", PaymentsRoute);
+app.use("/internal", InternalalRoute);
 
 // Start the server
 const port = process.env.PORT || 8080;
